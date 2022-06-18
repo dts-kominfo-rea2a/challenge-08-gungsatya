@@ -53,14 +53,11 @@
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
-        console.log(toDoItem);
-        if (toDoItem.type === "click" || toDoItem.key === "Enter") {
-          const todoString = input.value;
+        let li = document.createElement("li");
+        li.innerHTML = input.value;
 
-          const newLi = document.createElement("li");
-          newLi.append(todoString);
-
-          output.appendChild(newLi);
+        if (event.key === "Enter" || event.target.id === "todo-submit") {
+          output.appendChild(li);
           input.value = "";
         }
       }
